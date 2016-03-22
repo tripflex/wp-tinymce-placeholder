@@ -1,12 +1,51 @@
-Placeholder text plugin for TinyMCE
-===================================
+Placeholder text plugin for TinyMCE in WordPress
+================================================
 
-This plugin brings HTML5 placeholder attribute functionality for the TinyMCE editor.
+This plugin brings HTML5 placeholder attribute functionality for the TinyMCE editor in WordPress.
+
+Original Source:
+https://github.com/mohan999/tinymce-placeholder
 
 Usage
 -----
 
-* Add the plugin script to the page
-* Add "placeholder" to tinymce config plugins array.
-* Add a placeholder attribute to the textarea as usual.
-* Enjoy!
+## Add placeholder.js
+Download the placeholder.js file and place it in your theme/plugin directory, or somewhere you know the full URL to.
+
+## Add placeholder plugin through filter
+
+
+```php
+add_filter( 'mce_external_plugins', 'add_mce_placeholder_plugin' );
+
+function add_mce_placeholder_plugin( $plugins ){
+
+	// Optional, check for specific post type to add this
+	// if( 'my_custom_post_type' !== get_post_type() ) return $plugins;
+
+	$plugins[ 'placeholder' ] = '//domain.com/full/path/to/placeholder.js';
+	
+	return $plugins;
+}
+```
+
+## Set placeholder value in textarea
+
+
+```php
+add_filter( 'the_editor', array( $this, 'set_my_mce_editor_placeholder' ) );
+
+function set_my_mce_editor_placeholder( $textarea_html ){
+
+	// Optional, check for specific post type to add this (remove // to uncomment and use)
+	// if( 'my_custom_post_type' !== get_post_type() ) return $plugins;
+	
+	$placeholder = __( 'Check it out...this is my custom placeholder!' );
+	
+	$textarea_html = preg_replace( '/<textarea/', "<textarea placeholder=\"{$placeholder}\"", $textarea_html );
+
+	return $textarea_html;
+}
+```
+
+# Profit!
