@@ -1,43 +1,46 @@
-tinymce.PluginManager.add('placeholder', function(editor) {
-    editor.on('init', function() {
-        var label = new Label;
-        
-        onBlur();
+(function () {
+	tinymce.PluginManager.add( 'placeholder', function ( editor ) {
+		editor.on( 'init', function () {
+			var label = new Label;
 
-        tinymce.DOM.bind(label.el, 'click', onFocus);
-        editor.on('focus', onFocus);
-        editor.on('blur', onBlur);
+			onBlur();
 
-        function onFocus(){
-            label.hide();
-            tinyMCE.execCommand('mceFocus', false, editor);
-        }
+			tinymce.DOM.bind( label.el, 'click', onFocus );
+			editor.on( 'focus', onFocus );
+			editor.on( 'blur', onBlur );
+			editor.on( 'change', onBlur );
 
-        function onBlur(){
-            if(editor.getContent() == '') {
-                label.show();
-            }else{
-                label.hide();
-            }
-        }
-    });
+			function onFocus() {
+				label.hide();
+				tinyMCE.execCommand( 'mceFocus', false, editor );
+			}
 
-    var Label = function(){
-        // Create label el
-        this.text = editor.getElement().getAttribute("placeholder");
-        this.contentAreaContainer = editor.getContentAreaContainer();
+			function onBlur() {
+				if ( editor.getContent() == '' ) {
+					label.show();
+				} else {
+					label.hide();
+				}
+			}
+		} );
 
-        tinymce.DOM.setStyle(this.contentAreaContainer, 'position', 'relative');
+		var Label = function () {
+			// Create label el
+			this.text = editor.getElement().getAttribute( "placeholder" );
+			this.contentAreaContainer = editor.getContentAreaContainer();
 
-        attrs = {style: {position: 'absolute', top:'5px', left:0, color: '#888', padding: '1%', width:'98%', overflow: 'hidden'} };
-        this.el = tinymce.DOM.add( this.contentAreaContainer, "label", attrs, this.text );
-    }
+			tinymce.DOM.setStyle( this.contentAreaContainer, 'position', 'relative' );
 
-    Label.prototype.hide = function(){
-        tinymce.DOM.setStyle( this.el, 'display', 'none' );
-    }
+			attrs = {style: {position: 'absolute', top: '40px', left: 0, color: '#888', padding: '1%', width: '98%', overflow: 'hidden'}};
+			this.el = tinymce.DOM.add( this.contentAreaContainer, "label", attrs, this.text );
+		};
 
-    Label.prototype.show = function(){
-        tinymce.DOM.setStyle( this.el, 'display', '' );   
-    }
-});
+		Label.prototype.hide = function () {
+			tinymce.DOM.setStyle( this.el, 'display', 'none' );
+		};
+
+		Label.prototype.show = function () {
+			tinymce.DOM.setStyle( this.el, 'display', '' );
+		}
+	} );
+})();
