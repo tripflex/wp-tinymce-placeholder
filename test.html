@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Placeholder plugin test</title>
+  <script src="http://tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+  <script src="placeholder/plugin.js"></script>
+  <script type="text/javascript">
+  tinymce.init({
+      selector: "textarea",
+      plugins: [ "placeholder" ],
+      toolbar: false //"undo redo"
+  });
+  </script>
+</head>
+<body>
+  <h2>Empty Editor</h2>
+  <textarea class="tinymce" placeholder="This is a test placeholder."></textarea>
+  <h2>Non-empty Editor</h2>
+  <textarea class="tinymce" placeholder="This is a test placeholder...">This is an editor with text</textarea>
+  <h2>Editor without placeholder attribute</h2>
+  <textarea class="tinymce"></textarea>
+  <h2>Empty Editor Long Placeholder</h2>
+  <textarea class="tinymce" placeholder="This is a test placeholder. Very very very very very very very very very very very very very very very very very long placeholdedr."></textarea>
+</body>
+</html>
