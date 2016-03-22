@@ -29,7 +29,7 @@ function add_mce_placeholder_plugin( $plugins ){
 	// Optional, check for specific post type to add this
 	// if( 'my_custom_post_type' !== get_post_type() ) return $plugins;
 
-	$plugins[ 'placeholder' ] = '//domain.com/full/path/to/placeholder.js';
+	$plugins[ 'placeholder' ] = '//domain.com/full/path/to/mce.placeholder.js';
 
 	return $plugins;
 }
