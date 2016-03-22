@@ -1,10 +1,10 @@
 WordPress TinyMCE Placeholder Plugin
 ====================================
 
-Last Updated: March 22, 2016
-Author: Myles McNamara
-Original Author: mohan999
-Original Source: https://github.com/mohan999/tinymce-placeholder
+ - Last Updated: March 22, 2016
+ - Author: Myles McNamara
+ - Original Author: mohan999
+ - Original Source: https://github.com/mohan999/tinymce-placeholder
 
 This plugin brings HTML5 placeholder attribute functionality for the TinyMCE editor in WordPress.  The standard placeholder in the textarea will show when viewing in text mode, this plugin adds a `<label>` html element that is only shown when viewing the Visual editor.
 
