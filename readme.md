@@ -1,7 +1,7 @@
 WordPress TinyMCE Placeholder Plugin
 ====================================
 
- - Last Updated: March 22, 2016
+ - Last Updated: March 23, 2016
  - Author: Myles McNamara
  - Original Author: mohan999
  - Original Source: https://github.com/mohan999/tinymce-placeholder
