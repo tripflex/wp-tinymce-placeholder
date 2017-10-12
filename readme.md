@@ -42,7 +42,7 @@ function add_mce_placeholder_plugin( $plugins ){
 
 
 ```php
-add_filter( 'the_editor', array( $this, 'set_my_mce_editor_placeholder' ) );
+add_filter( 'the_editor', 'set_my_mce_editor_placeholder' );
 
 function set_my_mce_editor_placeholder( $textarea_html ){
 
