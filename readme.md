@@ -20,7 +20,9 @@ This plugin brings HTML5 placeholder attribute functionality for the TinyMCE edi
  - Profit!
 
 ## Add mce.placeholder.js
-Download the mce.placeholder.js file and place it in your theme/plugin directory, or somewhere you know the full URL to.
+Download the mce.placeholder.js file and place it in your theme OR plugin directory, or somewhere you know the full URL to.
+
+The example below assumes you have placed the `mce.placeholder.js` in the ROOT directory of your child theme
 
 ## Add placeholder plugin through filter
 
