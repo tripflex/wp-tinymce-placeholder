@@ -2,6 +2,7 @@ WordPress TinyMCE Placeholder Plugin
 ====================================
 
  - Last Updated: March 23, 2016
+ - Last Tested: September 5, 2018
  - Author: Myles McNamara
  - Original Author: mohan999
  - Original Source: https://github.com/mohan999/tinymce-placeholder
@@ -32,7 +33,11 @@ function add_mce_placeholder_plugin( $plugins ){
 	// Optional, check for specific post type to add this
 	// if( 'my_custom_post_type' !== get_post_type() ) return $plugins;
 
-	$plugins[ 'placeholder' ] = '//domain.com/full/path/to/mce.placeholder.js';
+	// This assumes you placed mce.placeholder.js in root of child theme directory
+	$plugins['placeholder'] = get_stylesheet_directory_uri() . '/mce.placeholder.js';
+
+	// You can also specify the exact path if you want:
+	// $plugins[ 'placeholder' ] = '//domain.com/full/path/to/mce.placeholder.js';
 
 	return $plugins;
 }
